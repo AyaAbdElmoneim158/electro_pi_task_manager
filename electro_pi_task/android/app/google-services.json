@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "380700042754",
+    "project_id": "dishdashapp-c5af4",
+    "storage_bucket": "dishdashapp-c5af4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380700042754:android:fb0f96d3398ffd44e7291b",
+        "android_client_info": {
+          "package_name": "com.example.dishdashapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380700042754-ilenflmmhtnkb2k63d9j0e4n8io7930j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwg_OnBH-mBDPwOVPColpS0_2fSoLiq2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380700042754-ilenflmmhtnkb2k63d9j0e4n8io7930j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "380700042754-608e9v2hloud56mirdg80ch45hatra0k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.dishdashapp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380700042754:android:f048e19ecdb750b3e7291b",
+        "android_client_info": {
+          "package_name": "com.example.electro_pi_task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380700042754-ilenflmmhtnkb2k63d9j0e4n8io7930j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwg_OnBH-mBDPwOVPColpS0_2fSoLiq2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380700042754-ilenflmmhtnkb2k63d9j0e4n8io7930j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "380700042754-608e9v2hloud56mirdg80ch45hatra0k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.dishdashapp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380700042754:android:3524448123054d8be7291b",
+        "android_client_info": {
+          "package_name": "com.example.electro_pi_task_manager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380700042754-ilenflmmhtnkb2k63d9j0e4n8io7930j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwg_OnBH-mBDPwOVPColpS0_2fSoLiq2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "380700042754-ilenflmmhtnkb2k63d9j0e4n8io7930j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "380700042754-608e9v2hloud56mirdg80ch45hatra0k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.dishdashapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

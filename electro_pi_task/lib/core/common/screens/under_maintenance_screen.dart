@@ -19,7 +19,8 @@ class UnderMaintenanceScreen extends StatelessWidget {
                 child: AspectRatio(
                   aspectRatio: 1,
                   child: SvgPicture.string(
-                    underMaintenanceIllistration.replaceAll('#E5E5E5', '#FFEBB4').replaceAll('#E2E2E2', '#C1D3DD').replaceAll('#0E0E0E', '#803D23'),
+                    underMaintenanceIllistration
+                    .replaceAll('#E5E5E5', '#FFEBB4').replaceAll('#E2E2E2', '#C1D3DD').replaceAll('#0E0E0E', '#803D23'),
                     fit: BoxFit.scaleDown,
                   ),
                 ),

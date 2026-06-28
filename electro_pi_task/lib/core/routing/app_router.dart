@@ -1,4 +1,5 @@
 import 'package:electro_pi_task/core/common/screens/error_404_screen.dart';
+import 'package:electro_pi_task/core/common/screens/welcome_screen.dart';
 import 'package:electro_pi_task/core/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 
@@ -9,16 +10,10 @@ class AppRouter {
     // final arguments = setting.arguments;
     switch (setting.name) {
       case AppRoutes.splashRouter:
-        return MaterialPageRoute(
-          builder: (context) => Scaffold(
-            body: Center(child: Text("Splash")),
-          ),
-        );
+        return MaterialPageRoute(builder: (context) => WelcomeScreen());
 
       default:
-        return MaterialPageRoute(
-          builder: (context) => Error404Screen(),
-        );
+        return MaterialPageRoute(builder: (context) => Error404Screen());
     }
   }
 }
