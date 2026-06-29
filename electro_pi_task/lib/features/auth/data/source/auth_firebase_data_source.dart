@@ -6,23 +6,23 @@ import 'package:electro_pi_task/features/auth/data/models/user_model.dart';
 import 'package:electro_pi_task/features/auth/data/source/auth_data_source.dart';
 
 class AuthFirebaseDataSource implements AuthDataSource {
-  AuthFirebaseDataSource({
-    required this.firebaseAuthServices,
-    required this.firestoreServices,
-    required this.sharedPreferencesService,
-  });
+  AuthFirebaseDataSource(
+    this.firebaseAuthServices,
+    this.firestoreServices,
+    this.sharedPreferencesService,
+  );
 
   final FirebaseAuthServices firebaseAuthServices;
   final FirestoreServices firestoreServices;
   final SharedPreferencesService sharedPreferencesService;
 
   @override
-  Future<bool> login(UserModel user) async {
+  Future<void> login(UserModel user) async {
     final credential = await firebaseAuthServices.loginWithEmailAndPassword(user.email, user.password);
-    if (credential == null) return false;
+    if (credential == null) return ;
     final token = await credential.getIdToken();
     await sharedPreferencesService.saveData(key: StorageKeys.tokenKey, value: token);
-    return true;
+    return ;
   }
 
   @override

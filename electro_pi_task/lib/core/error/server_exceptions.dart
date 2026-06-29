@@ -46,48 +46,92 @@ void _handleBadResponse(DioException e) {
   }
 }
 
-void handleFirebaseAuthExceptions(FirebaseAuthException e) {
+ErrorModel handleFirebaseAuthExceptions(FirebaseAuthException e) {
   debugPrint('🔥 FirebaseAuthException: [${e.code}] | ${e.message}');
-  String message;
+
+  late final String message;
 
   switch (e.code) {
+    case 'invalid-credential':
+      message = 'Invalid email or password.';
+      break;
+
     case 'user-not-found':
-      message = 'No user found with this email.';
+      message = 'No account found with this email.';
       break;
+
     case 'wrong-password':
-      message = 'Incorrect password. Please try again.';
+      message = 'Incorrect password.';
       break;
+
     case 'email-already-in-use':
       message = 'This email is already registered.';
       break;
+
     case 'invalid-email':
-      message = 'The email address is not valid.';
+      message = 'Please enter a valid email address.';
       break;
+
     case 'user-disabled':
-      message = 'This user account has been disabled.';
+      message = 'This account has been disabled.';
       break;
+
     case 'weak-password':
-      message = 'The password provided is too weak.';
+      message = 'Password is too weak.';
       break;
+
     case 'operation-not-allowed':
-      message = 'Enable this auth provider in the Firebase Console.';
+      message = 'This authentication method is not enabled.';
       break;
+
     case 'too-many-requests':
       message = 'Too many attempts. Please try again later.';
       break;
+
     case 'network-request-failed':
-      message = 'Network error. Please check your internet connection.';
+      message = 'No internet connection.';
       break;
+
+    case 'requires-recent-login':
+      message = 'Please log in again to continue.';
+      break;
+
+    case 'credential-already-in-use':
+      message = 'This credential is already associated with another account.';
+      break;
+
+    case 'account-exists-with-different-credential':
+      message = 'An account already exists with a different sign-in method.';
+      break;
+
+    case 'invalid-verification-code':
+      message = 'The verification code is invalid.';
+      break;
+
+    case 'invalid-verification-id':
+      message = 'The verification ID is invalid.';
+      break;
+
+    case 'session-expired':
+      message = 'The verification session has expired.';
+      break;
+
+    case 'provider-already-linked':
+      message = 'This provider is already linked to your account.';
+      break;
+
+    case 'no-such-provider':
+      message = 'No account is linked with this sign-in provider.';
+      break;
+
     default:
       message = e.message ?? 'An unexpected authentication error occurred.';
   }
 
-  throw ServerException(
-    errModel: ErrorModel(message: message),
-  );
+  return ErrorModel(message: message);
 }
 
-void handleFirebaseException(FirebaseException e) {
+ErrorModel handleFirebaseException(FirebaseException e) {
   String message;
 
   switch (e.code) {
@@ -110,5 +154,5 @@ void handleFirebaseException(FirebaseException e) {
       message = e.message ?? 'A database error occurred.';
   }
 
-  throw ServerException(errModel: ErrorModel(message: message));
+  return ErrorModel(message: message);
 }

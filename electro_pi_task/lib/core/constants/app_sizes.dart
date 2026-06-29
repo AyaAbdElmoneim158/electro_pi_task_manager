@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 abstract class AppSizes {
   AppSizes._();
   static double xs = 4.0;
@@ -22,5 +24,5 @@ abstract class AppSizes {
   static double borderRadiusLg = 12.0;
 }
 
-// SizedBox verticalSpace(double height) => SizedBox(height: height.h);
-// SizedBox horizontalSpace(double width) => SizedBox(width: width.w);
+SizedBox verticalSpace(double height) => SizedBox(height: height);
+SizedBox horizontalSpace(double width) => SizedBox(width: width);

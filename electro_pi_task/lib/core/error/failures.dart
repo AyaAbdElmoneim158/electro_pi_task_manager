@@ -17,9 +17,6 @@ class CacheFailure extends Failure {
   CacheFailure(super.errorModel);
 }
 
-class NetworkFailure extends Failure {
-  NetworkFailure(super.errorModel);
-}
 
 class NotFoundFailure extends Failure {
   NotFoundFailure(super.errorModel);

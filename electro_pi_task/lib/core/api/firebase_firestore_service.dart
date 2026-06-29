@@ -34,7 +34,7 @@ abstract class FirestoreServices {
 
 class FirestoreServicesImpl implements FirestoreServices {
   final FirebaseFirestore _fireStore;
-  FirestoreServicesImpl({FirebaseFirestore? fireStore}) : _fireStore = fireStore ?? FirebaseFirestore.instance;
+  FirestoreServicesImpl(this._fireStore);
 
   @override
   Future<void> setData({
@@ -42,24 +42,16 @@ class FirestoreServicesImpl implements FirestoreServices {
     required Map<String, dynamic> data,
     bool merge = true,
   }) async {
-    try {
-      final reference = _fireStore.doc(path);
-      debugPrint('✍️ Firestore Set: $path');
-      await reference.set(data, SetOptions(merge: merge));
-    } on FirebaseException catch (e) {
-      handleFirebaseException(e);
-    }
+    final reference = _fireStore.doc(path);
+    debugPrint('✍️ Firestore Set: $path');
+    await reference.set(data, SetOptions(merge: merge));
   }
 
   @override
   Future<void> deleteData({required String path}) async {
-    try {
-      final reference = _fireStore.doc(path);
-      debugPrint('🗑️ Firestore Delete: $path');
-      await reference.delete();
-    } on FirebaseException catch (e) {
-      handleFirebaseException(e);
-    }
+    final reference = _fireStore.doc(path);
+    debugPrint('🗑️ Firestore Delete: $path');
+    await reference.delete();
   }
 
   @override
@@ -98,17 +90,12 @@ class FirestoreServicesImpl implements FirestoreServices {
     required String path,
     required T Function(Map<String, dynamic> data, String documentID) builder,
   }) async {
-    try {
-      final reference = _fireStore.doc(path);
-      final snapshot = await reference.get();
-      if (!snapshot.exists) {
-        throw FirebaseException(plugin: 'firestore', code: 'not-found');
-      }
-      return builder(snapshot.data() as Map<String, dynamic>, snapshot.id);
-    } on FirebaseException catch (e) {
-      handleFirebaseException(e);
-      rethrow;
+    final reference = _fireStore.doc(path);
+    final snapshot = await reference.get();
+    if (!snapshot.exists) {
+      throw FirebaseException(plugin: 'firestore', code: 'not-found');
     }
+    return builder(snapshot.data() as Map<String, dynamic>, snapshot.id);
   }
 
   @override
@@ -118,18 +105,13 @@ class FirestoreServicesImpl implements FirestoreServices {
     Query Function(Query query)? queryBuilder,
     int Function(T lhs, T rhs)? sort,
   }) async {
-    try {
-      Query query = _fireStore.collection(path);
-      if (queryBuilder != null) query = queryBuilder(query);
+    Query query = _fireStore.collection(path);
+    if (queryBuilder != null) query = queryBuilder(query);
 
-      final snapshots = await query.get();
-      final result = snapshots.docs.map((doc) => builder(doc.data() as Map<String, dynamic>, doc.id)).toList();
+    final snapshots = await query.get();
+    final result = snapshots.docs.map((doc) => builder(doc.data() as Map<String, dynamic>, doc.id)).toList();
 
-      if (sort != null) result.sort(sort);
-      return result;
-    } on FirebaseException catch (e) {
-      handleFirebaseException(e);
-      return []; // Return empty list as fallback
-    }
+    if (sort != null) result.sort(sort);
+    return result;
   }
 }

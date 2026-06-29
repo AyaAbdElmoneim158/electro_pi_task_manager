@@ -1,4 +1,3 @@
-
 import 'package:electro_pi_task/core/error/error_model.dart';
 import 'package:electro_pi_task/core/error/failures.dart';
 import 'package:electro_pi_task/core/error/server_exceptions.dart';
@@ -9,12 +8,12 @@ class CacheException implements Failure {
 
   @override
   String toString() => message;
-  
+
   @override
   ErrorModel get errorModel => throw ErrorModel(message: message);
 }
 
-void handleCacheException(Object e) {
+ErrorModel handleCacheException(Object e) {
   late final String errorMessage;
 
   if (e is CacheException) {
@@ -26,5 +25,5 @@ void handleCacheException(Object e) {
   } else {
     errorMessage = 'Local Storage Error: ${e.toString()}';
   }
-  throw ServerException(errModel: ErrorModel(message: errorMessage));
+  return ErrorModel(message: errorMessage);
 }

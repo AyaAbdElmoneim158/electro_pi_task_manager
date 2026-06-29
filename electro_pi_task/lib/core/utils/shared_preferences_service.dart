@@ -12,6 +12,8 @@ class SharedPreferencesService {
     instance = SharedPreferencesService._(prefs);
   }
 
+  SharedPreferences get prefs => _prefs;
+
   dynamic getData({required String key}) {
     try {
       return _prefs.get(key);
