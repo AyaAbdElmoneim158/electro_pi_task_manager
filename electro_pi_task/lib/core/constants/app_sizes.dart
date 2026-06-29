@@ -13,10 +13,10 @@ abstract class AppSizes {
   static double iconMd = 24.0;
   static double iconLg = 32.0;
 
-  static double defaultSpace = 24.0;
-  static double spaceBtwItems = 16.0;
-  static double spaceBtwSections = 32.0;
-  static double defaultPadding = 14.0;
+  static const double defaultSpace = 24.0;
+  static const double spaceBtwItems = 16.0;
+  static const double spaceBtwSections = 32.0;
+  static const double defaultPadding = 14.0;
   static double appBarHight = 56.0;
 
   static double borderRadiusSm = 4.0;

@@ -1,4 +1,5 @@
 import 'package:electro_pi_task/core/constants/app_assets.dart';
+import 'package:electro_pi_task/core/constants/app_strings.dart';
 import 'package:electro_pi_task/core/routing/app_routes.dart';
 import 'package:electro_pi_task/features/auth/presentation/controllers/auth_cubit.dart';
 import 'package:electro_pi_task/features/auth/presentation/controllers/auth_state.dart';
@@ -28,7 +29,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     if (!mounted) return;
     final authState = context.read<AuthCubit>().state;
     if (authState is AuthSuccess) {
-      Navigator.pushReplacementNamed(context, AppRoutes.navBarRouter);
+      Navigator.pushReplacementNamed(context, AppRoutes.profileRouter);
     } else {
       Navigator.pushReplacementNamed(context, AppRoutes.loginRouter);
     }
@@ -102,7 +103,7 @@ class ErrorInfo extends StatelessWidget {
             button ??
                 ElevatedButton(
                   onPressed: press,
-                  child: Text(btnText ?? "Retry"),
+                  child: Text(btnText ?? AppStrings.retry),
                 ),
             const SizedBox(height: 40),
           ],

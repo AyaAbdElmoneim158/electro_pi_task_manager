@@ -1,4 +1,5 @@
 // lib/core/widgets/default_screen_body.dart
+import 'package:electro_pi_task/core/constants/app_sizes.dart';
 import 'package:flutter/material.dart';
 
 class DefaultScreenBody extends StatelessWidget {
@@ -8,7 +9,7 @@ class DefaultScreenBody extends StatelessWidget {
   const DefaultScreenBody({
     super.key,
     required this.children,
-    this.padding = const EdgeInsets.symmetric(horizontal: 16),
+    this.padding = const EdgeInsets.symmetric(horizontal: AppSizes.defaultPadding),
   });
 
   @override

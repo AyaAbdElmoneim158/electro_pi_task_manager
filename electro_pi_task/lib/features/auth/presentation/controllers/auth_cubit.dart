@@ -32,6 +32,7 @@ class AuthCubit extends Cubit<AuthState> {
           user = fetchedUser;
           emit(AuthSuccess(fetchedUser));
         }
+        print("fetchedUser: ${user?.name ?? "name"} | ${user?.email ?? "email"}");
       },
     );
   }
@@ -39,7 +40,7 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> register(UserModel user) async {
     emit(AuthLoading());
     final result = await _authRepository.register(user);
-    
+
     result.fold(
       (failure) => emit(AuthError(failure.errorModel.message ?? AppStrings.unexpectedError)),
       (_) => emit(AuthSuccess(user)),

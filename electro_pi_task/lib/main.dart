@@ -1,3 +1,4 @@
+import 'package:electro_pi_task/core/common/screens/under_maintenance_screen.dart';
 import 'package:electro_pi_task/core/service_locator.dart';
 import 'package:electro_pi_task/core/utils/app_bloc_observer.dart';
 import 'package:electro_pi_task/core/utils/shared_preferences_service.dart';
@@ -12,13 +13,14 @@ import 'package:path_provider/path_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  //TODO: At.fun 
+  ErrorWidget.builder = (FlutterErrorDetails details) => UnderMaintenanceScreen();
+
+  //TODO: At.fun
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await SharedPreferencesService.init();
   await initServiceLocator();
-    Bloc.observer = AppBlocObserver();
-
+  Bloc.observer = AppBlocObserver();
 
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: HydratedStorageDirectory(

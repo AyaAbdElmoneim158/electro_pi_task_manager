@@ -4,7 +4,6 @@ abstract class AppStrings {
   static const String loginTitle = 'Let’s Get Started';
   static const String loginSubtitle = 'Access your workspace and manage tasks efficiently.';
 
-// Auth Strings
   static const String nameLabel = 'Name';
   static const String nameHint = 'Enter your name';
   static const String emailHint = 'Enter your email';
@@ -18,11 +17,16 @@ abstract class AppStrings {
   static const String createAccountSubtitle = 'Create an account to start managing your tasks.';
   static const String alreadyHaveAccount = 'Already have an account? ';
 
-// Errors
+  static const String retry = 'Retry';
+ static const String defaultName = 'John Doe';
+static const String defaultEmail = 'john.doe@example.com';
+  static const String profile = 'Profile';
+  static const String logout = 'Logout';
+  static const String logoutConfirmation = 'Are you sure you want to logout?';
+  static const String cancel = 'Cancel';
+
   static const String unexpectedError = 'Unexpected error occurred';
 }
 /*
- labelText: 'Name',
-                  hintText: 'Enter your name',
 
  */

@@ -58,7 +58,7 @@ class _LoginFormState extends State<LoginForm> {
           BlocConsumer<AuthCubit, AuthState>(
             listener: (context, state) {
               if (state is AuthSuccess) {
-                Navigator.pushReplacementNamed(context, AppRoutes.navBarRouter);
+                Navigator.pushReplacementNamed(context, AppRoutes.profileRouter);
               } else if (state is AuthError) {
                 context.showSnackBar(message: state.message, isError: true);
               }
