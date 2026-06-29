@@ -23,6 +23,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   }
 
   Future<void> _navigate() async {
+    await context.read<AuthCubit>().checkAuthStatus();
     await Future.delayed(const Duration(seconds: 2));
     if (!mounted) return;
     final authState = context.read<AuthCubit>().state;

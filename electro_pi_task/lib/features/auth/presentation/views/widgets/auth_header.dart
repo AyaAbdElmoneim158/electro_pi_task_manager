@@ -24,10 +24,7 @@ class AuthHeader extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.8,
           child: AspectRatio(
             aspectRatio: 3.0,
-            child: SvgPicture.asset(
-              assetPath,
-              fit: BoxFit.scaleDown,
-            ),
+            child: SvgPicture.asset(assetPath, fit: BoxFit.scaleDown),
           ),
         ),
         verticalSpace(AppSizes.xs),
@@ -39,11 +36,8 @@ class AuthHeader extends StatelessWidget {
         Text(
           subtitle,
           textAlign: TextAlign.center,
-          style: context.bodyMedium?.copyWith(
-            color: context.colorScheme.surfaceContainerHighest,
-          ),
+          style: context.bodyMedium?.copyWith(color: context.colorScheme.surfaceContainerHighest),
         ),
-        
       ],
     );
   }

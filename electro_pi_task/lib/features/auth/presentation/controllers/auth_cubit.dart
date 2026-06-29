@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit(this._authRepository) : super(AuthInitial());
   final AuthRepository _authRepository;
+  UserModel? user;
 
   Future<void> login(UserModel user) async {
     emit(AuthLoading());
@@ -24,7 +25,34 @@ class AuthCubit extends Cubit<AuthState> {
 
     result.fold(
       (failure) => emit(AuthError(failure.errorModel.message ?? AppStrings.unexpectedError)),
-      (user) => (user == null) ? emit(Unauthenticated()) : emit(AuthSuccess(user)),
+      (fetchedUser) {
+        if (fetchedUser == null) {
+          emit(Unauthenticated());
+        } else {
+          user = fetchedUser;
+          emit(AuthSuccess(fetchedUser));
+        }
+      },
+    );
+  }
+
+  Future<void> register(UserModel user) async {
+    emit(AuthLoading());
+    final result = await _authRepository.register(user);
+    
+    result.fold(
+      (failure) => emit(AuthError(failure.errorModel.message ?? AppStrings.unexpectedError)),
+      (_) => emit(AuthSuccess(user)),
+    );
+  }
+
+  Future<void> logout() async {
+    emit(AuthLoading());
+    final result = await _authRepository.logout();
+
+    result.fold(
+      (failure) => emit(AuthError(failure.errorModel.message ?? AppStrings.unexpectedError)),
+      (_) => emit(Unauthenticated()),
     );
   }
 }
