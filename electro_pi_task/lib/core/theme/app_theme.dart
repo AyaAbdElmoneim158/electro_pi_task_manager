@@ -55,7 +55,7 @@ class AppTheme {
       backgroundColor: AppColors.primary,
       foregroundColor: AppColors.onSecondary,
       systemOverlayStyle: SystemUiOverlayStyle.dark,
-    ),
+    ),  
     textTheme: appTextTheme.apply(
       bodyColor: AppColors.onPrimary,
       displayColor: AppColors.onPrimary,
@@ -142,7 +142,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(14),
         ),
         textStyle: const TextStyle(
-          fontSize: 18,
+          fontSize: 18,  inherit: false,
           fontWeight: FontWeight.w500,
         ),
       ),
@@ -295,6 +295,10 @@ class AppTheme {
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14),
+        ),
+        textStyle: const TextStyle(
+          fontSize: 18,  inherit: false,
+          fontWeight: FontWeight.w500,
         ),
       ),
     ),

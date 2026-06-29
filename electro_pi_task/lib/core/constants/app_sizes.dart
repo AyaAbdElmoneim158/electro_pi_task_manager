@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 abstract class AppSizes {
   AppSizes._();
   static double xs = 4.0;
@@ -11,10 +13,10 @@ abstract class AppSizes {
   static double iconMd = 24.0;
   static double iconLg = 32.0;
 
-  static double defaultSpace = 24.0;
-  static double spaceBtwItems = 16.0;
-  static double spaceBtwSections = 32.0;
-  static double defaultPadding = 14.0;
+  static const double defaultSpace = 24.0;
+  static const double spaceBtwItems = 16.0;
+  static const double spaceBtwSections = 32.0;
+  static const double defaultPadding = 14.0;
   static double appBarHight = 56.0;
 
   static double borderRadiusSm = 4.0;
@@ -22,5 +24,5 @@ abstract class AppSizes {
   static double borderRadiusLg = 12.0;
 }
 
-// SizedBox verticalSpace(double height) => SizedBox(height: height.h);
-// SizedBox horizontalSpace(double width) => SizedBox(width: width.w);
+SizedBox verticalSpace(double height) => SizedBox(height: height);
+SizedBox horizontalSpace(double width) => SizedBox(width: width);
