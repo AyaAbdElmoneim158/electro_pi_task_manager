@@ -19,10 +19,10 @@ class AuthFirebaseDataSource implements AuthDataSource {
   @override
   Future<void> login(UserModel user) async {
     final credential = await firebaseAuthServices.loginWithEmailAndPassword(user.email, user.password);
-    if (credential == null) return ;
+    if (credential == null) return;
     final token = await credential.getIdToken();
     await sharedPreferencesService.saveData(key: StorageKeys.tokenKey, value: token);
-    return ;
+    return;
   }
 
   @override
@@ -33,5 +33,24 @@ class AuthFirebaseDataSource implements AuthDataSource {
       path: Collection.usersPath(firebaseUser.uid),
       builder: (data, documentId) => UserModel.fromMap(data),
     );
+  }
+
+  @override
+  Future<void> register(UserModel user) async {
+    final credential = await firebaseAuthServices.signUpWithEmailAndPassword(user.email, user.password);
+    if (credential == null) return;
+    final uid = credential.uid;
+    final token = await credential.getIdToken();
+    await sharedPreferencesService.saveData(key: StorageKeys.tokenKey, value: token);
+    await firestoreServices.setData(
+      path: '${Collection.usersCollection}/$uid',
+      data: {...user.toMap(), 'id': uid},
+    );
+  }
+
+  @override
+  Future<void> logout() async {
+    await firebaseAuthServices.logout();
+    await sharedPreferencesService.removeData(key: StorageKeys.tokenKey);
   }
 }

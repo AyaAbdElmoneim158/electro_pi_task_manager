@@ -11,6 +11,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 abstract interface class AuthRepository {
   Future<Either<Failure, UserModel>> login(UserModel user);
   Future<Either<Failure, UserModel?>> getUser();
+  Future<Either<Failure, void>> register(UserModel user);
+  Future<Either<Failure, void>> logout();
 }
 
 class AuthRepositoryImpl implements AuthRepository {
@@ -41,6 +43,36 @@ class AuthRepositoryImpl implements AuthRepository {
       return Left(ServerFailure(ErrorModel(message: e.message ?? e.toString())));
     } on CacheFailure catch (e) {
       return Left(CacheFailure(ErrorModel(message: e.errorModel.message)));
+    } catch (e) {
+      return Left(UnknownFailure(ErrorModel(message: e.toString())));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> register(UserModel user) async {
+    try {
+      final result = await _dataSource.register(user);
+      return Right(result);
+    } on FirebaseAuthException catch (e) {
+      var errorModel = handleFirebaseAuthExceptions(e);
+      return Left(ServerFailure(errorModel));
+    } on CacheFailure catch (e) {
+      return Left(CacheFailure(handleCacheException(e)));
+    } catch (e) {
+      return Left(UnknownFailure(ErrorModel(message: e.toString())));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> logout() async {
+    try {
+      final result = await _dataSource.logout();
+      return Right(result);
+    } on FirebaseAuthException catch (e) {
+      var errorModel = handleFirebaseAuthExceptions(e);
+      return Left(ServerFailure(errorModel));
+    } on CacheFailure catch (e) {
+      return Left(CacheFailure(handleCacheException(e)));
     } catch (e) {
       return Left(UnknownFailure(ErrorModel(message: e.toString())));
     }
