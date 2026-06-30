@@ -19,7 +19,7 @@ Ayhb756@
 ```
 ## 📦 APK
 
-You can download and try the latest APK from the link below: 👉 **[Download APK](https://github.com/<your-username>/<your-repository>/releases/latest/download/app-release.apk)**
+You can download and try the latest APK from the link below: 👉 **[Download APK](https://drive.google.com/file/d/1NSWHvp6EQKA-W5JssW8V-PdfQKkK1chx/view?usp=sharing)**
 
 > Or download it from the **Releases** section of this repository.
 
