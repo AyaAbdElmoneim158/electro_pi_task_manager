@@ -1,3 +1,4 @@
+import 'package:electro_pi_task/core/constants/app_assets.dart';
 import 'package:electro_pi_task/features/projects/data/models/project_model.dart';
 import 'package:electro_pi_task/features/projects/data/models/todo_model.dart';
 import 'package:electro_pi_task/features/projects/presentation/controllers/todos_cubit.dart';
@@ -8,6 +9,7 @@ import 'package:electro_pi_task/features/projects/presentation/views/widgets/tas
 import 'package:electro_pi_task/features/projects/presentation/views/widgets/todo_floating_action_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ProjectDetailsScreen extends StatelessWidget {
   const ProjectDetailsScreen(this.projectModel, this.userName, {super.key});
@@ -59,7 +61,36 @@ class ProjectDetailsScreen extends StatelessWidget {
 
                       //? Empty
                       if (todos.isEmpty)
-                        const SliverFillRemaining(hasScrollBody: false, child: Text("No tasks found"))
+                        SliverFillRemaining(
+                            hasScrollBody: false,
+                            child: //Text("No tasks found"),
+                                Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.width * .8,
+                                    child: AspectRatio(
+                                      aspectRatio: 3.2,
+                                      child: SvgPicture.string(
+                                        AppAssets.themedTaskNotFoundIllustration,
+                                        fit: BoxFit.contain,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 16),
+                                  Text(
+                                    "No tasks Found",
+                                    style: Theme.of(context).textTheme.titleLarge,
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    "Pull to refresh or create a new task.",
+                                    style: Theme.of(context).textTheme.bodyMedium,
+                                  ),
+                                ],
+                              ),
+                            ))
 
                       //? Todos
                       else

@@ -81,6 +81,10 @@ static final themedErrorIllustration = errorIllistration
     .replaceAll('#E5E5E5', '#FFEBB4') // primaryContainer
     .replaceAll('#E2E2E2', '#C1D3DD') // surfaceVariant
     .replaceAll('#0E0E0E', '#803D23'); // secondary
+    static final themedTaskNotFoundIllustration = taskNotFoundIllustration
+    .replaceAll('#E5E5E5', '#FFEBB4') // primaryContainer
+    .replaceAll('#E2E2E2', '#C1D3DD') // surfaceVariant
+    .replaceAll('#0E0E0E', '#803D23'); //
 
 
 static const errorIllistration =
@@ -156,4 +160,142 @@ static const errorIllistration =
 <path d="M156.63 815.14L135 810.92" stroke="#0E0E0E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>''';
 
+static const taskNotFoundIllustration = '''
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1080"
+     height="1080"
+     viewBox="0 0 512 512"
+     fill="none">
+
+  <!-- Background Blob -->
+  <path
+      d="M82 118C130 74 220 56 320 78C410 98 454 170 440 258C425 346 360 422 260 434C160 446 82 394 60 306C42 234 44 160 82 118Z"
+      fill="#F3F3F3"/>
+
+  <!-- Clipboard -->
+  <rect
+      x="150"
+      y="120"
+      width="212"
+      height="250"
+      rx="22"
+      fill="#FFFFFF"
+      stroke="#0E0E0E"
+      stroke-width="10"/>
+
+  <!-- Clipboard Top -->
+  <rect
+      x="214"
+      y="88"
+      width="84"
+      height="44"
+      rx="18"
+      fill="#E5E5E5"
+      stroke="#0E0E0E"
+      stroke-width="10"/>
+
+  <!-- Empty Checkbox -->
+  <rect
+      x="188"
+      y="182"
+      width="34"
+      height="34"
+      rx="6"
+      stroke="#0E0E0E"
+      stroke-width="8"/>
+
+  <!-- Empty Line -->
+  <line
+      x1="242"
+      y1="199"
+      x2="322"
+      y2="199"
+      stroke="#BDBDBD"
+      stroke-width="8"
+      stroke-linecap="round"/>
+
+  <!-- Empty Checkbox -->
+  <rect
+      x="188"
+      y="244"
+      width="34"
+      height="34"
+      rx="6"
+      stroke="#0E0E0E"
+      stroke-width="8"/>
+
+  <!-- Empty Line -->
+  <line
+      x1="242"
+      y1="261"
+      x2="310"
+      y2="261"
+      stroke="#BDBDBD"
+      stroke-width="8"
+      stroke-linecap="round"/>
+
+  <!-- Magnifying Glass -->
+  <circle
+      cx="272"
+      cy="300"
+      r="34"
+      stroke="#0E0E0E"
+      stroke-width="10"/>
+
+  <line
+      x1="298"
+      y1="326"
+      x2="332"
+      y2="360"
+      stroke="#0E0E0E"
+      stroke-width="10"
+      stroke-linecap="round"/>
+
+  <!-- Question Mark -->
+  <path
+      d="M268 286
+         C268 274 278 266 290 266
+         C302 266 312 274 312 286
+         C312 296 304 300 296 306
+         C291 310 289 313 289 318"
+      stroke="#BDBDBD"
+      stroke-width="8"
+      stroke-linecap="round"
+      stroke-linejoin="round"/>
+
+  <circle
+      cx="289"
+      cy="330"
+      r="4"
+      fill="#BDBDBD"/>
+
+  <!-- Decorative Circle -->
+  <circle
+      cx="110"
+      cy="410"
+      r="18"
+      fill="#E2E2E2"/>
+
+  <circle
+      cx="400"
+      cy="90"
+      r="22"
+      fill="#E2E2E2"/>
+
+  <!-- Decorative Cross -->
+  <path
+      d="M92 140L110 158M110 140L92 158"
+      stroke="#D2D2D2"
+      stroke-width="8"
+      stroke-linecap="round"/>
+
+  <!-- Decorative Line -->
+  <path
+      d="M385 58L420 25"
+      stroke="#0E0E0E"
+      stroke-width="8"
+      stroke-linecap="round"/>
+
+</svg>
+''';
 }
