@@ -7,4 +7,5 @@ class AppRoutes {
   static const String registerRouter = "/register";
   static const String profileRouter = "/profile";
   static const String navBarRouter = "/navBar";
+  static const String projectDetailsRouter = "/projectDetails";
 }

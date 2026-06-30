@@ -39,4 +39,14 @@ abstract class AppStyles {
       ],
     );
   }
+
+  static ButtonStyle? authButtonStyle() {
+    return ElevatedButton.styleFrom(
+      textStyle: const TextStyle(
+        fontFamily: 'DancingScript',
+        fontWeight: FontWeight.bold,
+        inherit: false,
+      ),
+    );
+  }
 }

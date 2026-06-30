@@ -20,6 +20,7 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   Future<void> checkAuthStatus() async {
+    if (user != null) return;
     emit(AuthLoading());
     final result = await _authRepository.getUser();
 

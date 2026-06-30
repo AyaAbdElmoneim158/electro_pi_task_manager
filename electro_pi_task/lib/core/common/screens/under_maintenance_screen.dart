@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class UnderMaintenanceScreen extends StatelessWidget {
-  const UnderMaintenanceScreen({super.key, this.details});
+  const UnderMaintenanceScreen({super.key, this.details, this.showRetryButton = true});
   final FlutterErrorDetails? details;
+  final bool showRetryButton;
 
   @override
   Widget build(BuildContext context) {
@@ -32,13 +33,10 @@ class UnderMaintenanceScreen extends StatelessWidget {
                 title: "Under Maintenance!",
                 description: details?.exception.toString() ?? "We are currently performing scheduled maintenance. Please check back later. Thank you for your patience.",
                 // button: you can pass your custom button,
+                showRetryButton: showRetryButton,
                 btnText: "Retry",
                 press: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    AppRoutes.loginRouter,
-                    (route) => false,
-                  );
+                  Navigator.pushNamedAndRemoveUntil(context, AppRoutes.loginRouter, (route) => false);
                 },
               ),
             ],
@@ -54,16 +52,16 @@ class ErrorInfo extends StatelessWidget {
     super.key,
     required this.title,
     required this.description,
-    this.button,
     this.btnText,
     required this.press,
+    this.showRetryButton = true,
   });
 
   final String title;
   final String description;
-  final Widget? button;
   final String? btnText;
   final VoidCallback press;
+  final bool showRetryButton;
 
   @override
   Widget build(BuildContext context) {
@@ -85,12 +83,12 @@ class ErrorInfo extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16 * 2.5),
-            button ??
-                ElevatedButton(
-                  onPressed: press,
-                  style: ElevatedButton.styleFrom(minimumSize: const Size(double.infinity, 48)),
-                  child: Text(btnText ?? AppStrings.retry.toUpperCase()),
-                ),
+            if (showRetryButton)
+              ElevatedButton(
+                onPressed: press,
+                style: ElevatedButton.styleFrom(minimumSize: const Size(double.infinity, 48)),
+                child: Text(btnText ?? AppStrings.retry.toUpperCase()),
+              ),
             const SizedBox(height: 16),
           ],
         ),

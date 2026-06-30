@@ -10,19 +10,55 @@ class ThemeToggleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeCubit, ThemeMode>(
       builder: (_, themeMode) {
-        return IconButton(
-          tooltip: 'Toggle Theme',
-          icon: Icon(
-            themeMode == ThemeMode.dark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
-            color: color ?? AppColors.primary,
+        return Container(
+          margin: EdgeInsets.symmetric(vertical: 8),
+          child: Material(
+            elevation: 10,
+            borderRadius: BorderRadius.circular(18),
+            child: Container(
+              width: 56,
+              height: 56,
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.surface,
+                borderRadius: BorderRadius.circular(18),
+              ),
+              child: IconButton(
+                tooltip: 'Toggle Theme',
+                icon: Icon(
+                  themeMode == ThemeMode.dark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
+                  color: color ?? AppColors.primary,
+                ),
+                onPressed: () {
+                  context.read<ThemeCubit>().updateTheme(
+                        themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark,
+                      );
+                },
+              ),
+            ),
           ),
-          onPressed: () {
-            context.read<ThemeCubit>().updateTheme(
-                  themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark,
-                );
-          },
         );
       },
     );
   }
 }
+/*
+                                )
+Material(
+                                  elevation: 10,
+                                  borderRadius: BorderRadius.circular(18),
+                                  child: InkWell(
+                                    borderRadius: BorderRadius.circular(18),
+                                    onTap: onFilter,
+                                    child: Container(
+                                      width: 56,
+                                      height: 56,
+                                      decoration: BoxDecoration(
+                                        color: Theme.of(context).colorScheme.surface,
+                                        borderRadius: BorderRadius.circular(18),
+                                      ),
+                                      child: ThemeToggleButton(),
+                                      // const Icon(Icons.tune_rounded),
+                                    ),
+                                  ),
+                                )
+ */
