@@ -2,8 +2,7 @@
 
 A modern Task Manager application built with Flutter using **MVVM Architecture**, **BLoC**, and **Firebase**. The app enables users to authenticate securely, manage projects, organize tasks, and track progress with a clean and responsive user interface.
 
-![App Preview](<img width="1920" height="1080" alt="ELBALTO" src="https://github.com/user-attachments/assets/7dd9eb5d-f8c0-4cf5-8894-21ab6077812d" />
-)
+![](ELBALTO.png)
 ## 📌 Notes
 
 - This project uses **Firebase** as the backend (Authentication + Cloud Firestore).
