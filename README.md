@@ -1,7 +1,107 @@
 # Electro Pi Task Manager
 
-A modern Task Manager application built with Flutter using **Clean Architecture**, **BLoC**, and **Firebase**. The app enables users to authenticate securely, manage projects, organize tasks, and track progress with a clean and responsive user interface.
+A modern Task Manager application built with Flutter using **MVVM Architecture**, **BLoC**, and **Firebase**. The app enables users to authenticate securely, manage projects, organize tasks, and track progress with a clean and responsive user interface.
 
+![App Preview](<img width="1920" height="1080" alt="ELBALTO" src="https://github.com/user-attachments/assets/7dd9eb5d-f8c0-4cf5-8894-21ab6077812d" />
+)
+## 📌 Notes
+
+- This project uses **Firebase** as the backend (Authentication + Cloud Firestore).
+- You can try the application using the following demo account:
+
+**Email**
+```text
+ayaabdelmon@gmail.com
+```
+
+**Password**
+```text
+Ayhb756@
+```
+## 📦 APK
+
+You can download and try the latest APK from the link below: 👉 **[Download APK](https://github.com/<your-username>/<your-repository>/releases/latest/download/app-release.apk)**
+
+> Or download it from the **Releases** section of this repository.
+
+# 📱 Screenshots
+## 🚀 Welcome
+
+| Light | Dark |
+|:------:|:----:|
+| ![](electro_pi_task/assets/screenshots/welcome_light.png) | ![](electro_pi_task/assets/screenshots/welcome_dark.png) |
+
+---
+
+## 🔐 Authentication
+
+| Login (Light) | Login (Dark) | Register (Light) | Register (Dark) |
+|:-------------:|:------------:|:----------------:|:---------------:|
+| ![](electro_pi_task/assets/screenshots/login_light.png) | ![](electro_pi_task/assets/screenshots/login_dark.png) | ![](electro_pi_task/assets/screenshots/register_light.png) | ![](electro_pi_task/assets/screenshots/register_dark.png) |
+
+---
+
+## 📂 Projects
+
+| Projects (Light) | Projects (Dark) | Search Projects | No Projects |
+|:----------------:|:---------------:|:---------------:|:-----------:|
+| ![](electro_pi_task/assets/screenshots/projects_light.png) | ![](electro_pi_task/assets/screenshots/projects_dark.png) | ![](electro_pi_task/assets/screenshots/projects_search.png) | ![](electro_pi_task/assets/screenshots/projects_not_found.png) |
+
+---
+
+## ✅ Tasks
+
+| Tasks | Empty Tasks |
+|:-----:|:-----------:|
+| ![](electro_pi_task/assets/screenshots/tasks.png) | ![](electro_pi_task/assets/screenshots/Task_3.png) |
+
+---
+
+## ➕ Create
+
+| Add Project | Add Task |
+|:-----------:|:--------:|
+| ![](electro_pi_task/assets/screenshots/add_new_project.png) | ![](electro_pi_task/assets/screenshots/add_new_task.png) |
+
+---
+
+## ✏️ Edit
+
+| Edit Project | Edit Task |
+|:------------:|:---------:|
+| ![](electro_pi_task/assets/screenshots/edit_project.png) | ![](electro_pi_task/assets/screenshots/edit_task.png) |
+
+---
+
+## 🗑️ Delete
+
+| Delete Project | Delete Task |
+|:--------------:|:-----------:|
+| ![](electro_pi_task/assets/screenshots/delete_project.png) | ![](electro_pi_task/assets/screenshots/delete_task.png) |
+
+---
+
+## 👤 Profile
+
+| Profile | Logout |
+|:-------:|:------:|
+| ![](electro_pi_task/assets/screenshots/profile.png) | ![](electro_pi_task/assets/screenshots/logout.png) |
+
+---
+
+## ⚠️ Error & Maintenance
+
+| 404 (Light) | 404 (Dark) |
+|:-----------:|:----------:|
+| ![](electro_pi_task/assets/screenshots/error_404_light.png) | ![](electro_pi_task/assets/screenshots/error_404_dark.png) |
+
+<br>
+
+| Under Maintenance 1 | Under Maintenance 2 |
+|:-------------------:|:-------------------:|
+| ![](electro_pi_task/assets/screenshots/underMaintenance_1.png) | ![](electro_pi_task/assets/screenshots/underMaintenance_2.png) |
+
+---
 ## ✨ Features
 
 ### 🔐 Authentication
@@ -39,32 +139,50 @@ A modern Task Manager application built with Flutter using **Clean Architecture*
 
 ## 🏗 Architecture
 
-The project follows **Clean Architecture** with clear separation between:
+The project follows **MVVM** with clear separation between:
 
 ```
 lib/
+│
 ├── core/
+│   ├── api/
+│   ├── common/
+│   │   ├── cubits/
+│   │   ├── screens/
+│   │   └── widgets/
+│   ├── constants/
+│   ├── error/
+│   ├── routing/
+│   ├── services/
+│   ├── theme/
+│   └── utils/
+│
 ├── features/
+│   │
 │   ├── auth/
-│   ├── home/
-│   └── profile/
-├── shared/
+│   │   ├── data/
+│   │   │   ├── models/
+│   │   │   ├── repos/
+│   │   │   └── sources/
+│   │   └── presentation/
+│   │       ├── controllers/
+│   │       ├── screens/
+│   │       └── widgets/
+│   │
+│   ├── projects/
+│   │   ├── data/
+│   │   │   ├── models/
+│   │   │   ├── repos/
+│   │   │   └── sources/
+│   │   └── presentation/
+│   │       ├── controllers/
+│   │       ├── screens/
+│   │       └── widgets/
+│
+├── firebase_options.dart
 └── main.dart
 ```
 
-Each feature contains:
-
-* Data Layer
-
-  * Models
-  * Repositories
-  * Data Sources
-* Domain Layer
-* Presentation Layer
-
-  * Screens
-  * Cubits
-  * Widgets
 
 ## 🛠 Tech Stack
 
@@ -79,7 +197,7 @@ Each feature contains:
 
 ## 🎯 Implemented Requirements
 
-* ✅ Clean Architecture
+* ✅ MVVM Architecture
 * ✅ Dependency Injection
 * ✅ Firebase Authentication
 * ✅ Cloud Firestore Database
@@ -104,7 +222,6 @@ Each feature contains:
 * Add/Edit Project
 * Add/Edit Task
 * Profile
-* Settings
 
 ## 🚀 Getting Started
 
@@ -127,5 +244,3 @@ flutter run
 ```
 
 ## 📌 Notes
-
-This project was developed as part of the **Electro Pi Flutter Mobile Developer Technical Assessment**. The implementation emphasizes clean code practices, reusable components, scalable architecture, and a smooth user experience while leveraging Firebase for backend services.
