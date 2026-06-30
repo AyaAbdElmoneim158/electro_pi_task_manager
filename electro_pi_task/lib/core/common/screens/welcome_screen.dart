@@ -29,7 +29,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     if (!mounted) return;
     final authState = context.read<AuthCubit>().state;
     if (authState is AuthSuccess) {
-      Navigator.pushReplacementNamed(context, AppRoutes.profileRouter);
+      Navigator.pushReplacementNamed(context, AppRoutes.navBarRouter);
     } else {
       Navigator.pushReplacementNamed(context, AppRoutes.loginRouter);
     }

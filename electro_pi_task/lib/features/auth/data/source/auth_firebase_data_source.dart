@@ -30,7 +30,7 @@ class AuthFirebaseDataSource implements AuthDataSource {
     final firebaseUser = firebaseAuthServices.currentUser;
     if (firebaseUser == null) return null;
     return firestoreServices.getDocument(
-      path: Collection.usersPath(firebaseUser.uid),
+      path: FirestorePath.usersPath(firebaseUser.uid),
       builder: (data, documentId) => UserModel.fromMap(data),
     );
   }
@@ -43,7 +43,7 @@ class AuthFirebaseDataSource implements AuthDataSource {
     final token = await credential.getIdToken();
     await sharedPreferencesService.saveData(key: StorageKeys.tokenKey, value: token);
     await firestoreServices.setData(
-      path: '${Collection.usersCollection}/$uid',
+      path: '${FirestorePath.usersPath}/$uid',
       data: {...user.toMap(), 'id': uid},
     );
   }

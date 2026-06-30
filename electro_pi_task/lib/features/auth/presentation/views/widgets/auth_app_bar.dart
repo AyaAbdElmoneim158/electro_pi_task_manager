@@ -10,7 +10,12 @@ class AuthAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      actions: const [ThemeToggleButton()],
+      actions: const [
+        ThemeToggleButton(),
+        SizedBox(
+          width: 12,
+        )
+      ],
       backgroundColor: Colors.transparent,
       elevation: 0,
       leading: hasLeading

@@ -1,4 +1,5 @@
 // lib/features/auth/presentation/widgets/auth_button.dart
+import 'package:electro_pi_task/core/theme/app_style.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,7 @@ class AuthButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: isLoading ? null : onPressed,
+      style: AppStyles.authButtonStyle(),
       child: isLoading
           ? Transform.scale(
               scale: 1.2,

@@ -1,6 +1,5 @@
 import 'package:electro_pi_task/core/error/error_model.dart';
 import 'package:electro_pi_task/core/error/failures.dart';
-import 'package:electro_pi_task/core/error/server_exceptions.dart';
 
 class CacheException implements Failure {
   final String message;

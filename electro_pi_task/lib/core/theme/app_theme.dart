@@ -51,11 +51,12 @@ class AppTheme {
     scaffoldBackgroundColor: AppColors.surfaceLight,
     appBarTheme: const AppBarTheme(
       elevation: 0,
+      toolbarHeight: 64,
       scrolledUnderElevation: 0,
       backgroundColor: AppColors.primary,
       foregroundColor: AppColors.onSecondary,
       systemOverlayStyle: SystemUiOverlayStyle.dark,
-    ),  
+    ),
     textTheme: appTextTheme.apply(
       bodyColor: AppColors.onPrimary,
       displayColor: AppColors.onPrimary,
@@ -142,7 +143,8 @@ class AppTheme {
           borderRadius: BorderRadius.circular(14),
         ),
         textStyle: const TextStyle(
-          fontSize: 18,  inherit: false,
+          fontSize: 18,
+          inherit: false,
           fontWeight: FontWeight.w500,
         ),
       ),
@@ -221,6 +223,7 @@ class AppTheme {
     scaffoldBackgroundColor: AppColors.surfaceDark,
     appBarTheme: const AppBarTheme(
       elevation: 0,
+      toolbarHeight: 64,
       scrolledUnderElevation: 0,
       backgroundColor: AppColors.primary,
       foregroundColor: AppColors.onSecondary,
@@ -297,7 +300,8 @@ class AppTheme {
           borderRadius: BorderRadius.circular(14),
         ),
         textStyle: const TextStyle(
-          fontSize: 18,  inherit: false,
+          fontSize: 18,
+          inherit: false,
           fontWeight: FontWeight.w500,
         ),
       ),

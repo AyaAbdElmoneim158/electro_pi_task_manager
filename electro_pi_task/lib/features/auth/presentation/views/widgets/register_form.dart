@@ -70,7 +70,7 @@ class _RegisterFormState extends State<RegisterForm> {
           BlocConsumer<AuthCubit, AuthState>(
             listener: (context, state) {
               if (state is AuthSuccess) {
-                Navigator.pushReplacementNamed(context, AppRoutes.profileRouter);
+                Navigator.pushReplacementNamed(context, AppRoutes.navBarRouter);
               } else if (state is AuthError) {
                 context.showSnackBar(message: state.message, isError: true);
               }
